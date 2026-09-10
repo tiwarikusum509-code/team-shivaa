@@ -212,3 +212,10 @@ app.listen(PORT, () => {
     console.log(`✅ Register: POST http://localhost:${PORT}/api/register`);
     console.log(`✅ Login: POST http://localhost:${PORT}/api/login`);
 });
+app.use(cors({
+    origin: [
+        'https://team-shivaa.tiwarikusum509.workers.dev',
+        'http://localhost:5500',
+        'http://127.0.0.1:5500'
+    ]
+}));
