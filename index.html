@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEAM SHIVAA — Esports Elite</title>
+    <meta name="description" content="TEAM SHIVAA is a premium esports collective. Dominate the arena with next‑gen gear, pro coaching, and futuristic style." />
+    <meta name="keywords" content="esports, gaming, TEAM SHIVAA, pro team, BGMI, tournament, gamers" />
+    <meta property="og:title" content="TEAM SHIVAA — Esports Elite" />
+    <meta property="og:description" content="Join the revolution. Premium esports brand for students and gamers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="#" />
+    <meta property="og:image" content="#" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="#" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+<!-- ✅ CryptoJS (MD5 hash ke liye) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+        <div class="loader-ring"></div>
+    </div>
+<!-- ===== HEADER / NAVBAR ===== -->
+<header>
+    <div class="container">
+        <nav>
+            <!-- Logo -->
+            <div class="logo">
+                <img src="https://dr-fast-upload.pages.dev/public/cac4ff865d0d.png" alt="TEAM SHIVAA" />
+                TEAM SHIVAA
+            </div>
+            
+            <!-- Nav Links -->
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+
+             
+                
+               <!-- ✅ PROFILE PHOTO (Login ke baad dikhegi) -->
+                <img id="navProfilePhoto" 
+                     src="https://ui-avatars.com/api/?name=User&background=8B5CF6&color=fff&size=100" 
+                     alt="Profile" 
+                     class="nav-profile-photo" 
+                     onclick="toggleLogout()" 
+                     style="border: 2px solid #06B6D4; border-radius: 50%; width: 36px; height: 36px; object-fit: cover; cursor: pointer;" />
+
+                    
+                
+                <!-- ✅ LOGOUT BUTTON (Hidden by default) -->
+                <button id="logoutBtn"onclick="logoutUser()" style="display:none; background:#ff6b7a; border:none; color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:0.8rem; transition:0.3s;">
+                    Logout
+                </button>
+
+                <!--=====MOBILE MENU=====-->
+            </div>
+            <button class="menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>      
+        
+    <!-- ===== MOBILE MENU ===== -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+            
+            <!-- ✅ MOBILE USER NAME -->
+            <div id="mobileUserInfo" style="display:none; text-align:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05);">
+                <img id="mobileProfilePhoto" src="https://ui-avatars.com/api/?name=User&background=8B5CF6&color=fff&size=80" alt="Profile" style="width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid #06B6D4; margin-bottom:4px;" />
+                <p id="mobileUserName" style="color:#b0c6f0; font-size:0.9rem; font-weight:600;"></p>
+            </div>
+            
+            <!-- ✅ MOBILE LOGOUT BUTTON -->
+            <button id="mobileLogoutBtn" onclick="logoutUser()" style="display:none; width:100%; background:#ff6b7a; border:none; color:#fff; padding:10px; border-radius:14px; cursor:pointer; font-size:0.9rem;margin-top:8px;">
+                Logout
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== HERO ===== -->
+ 
+<section id="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+        <span class="hero-welcome">WELCOME TO</span>
+        <h1>TEAM SHIVAA</h1>
+        <h2>GAME BEYOND LIMITS</h2>
+        <p>We are a next-gen gaming community built for passionate gamers. Compete, connect and conquer beyond limits.</p>
+        <div class="hero-actions">
+            <!-- ✅ GET STARTED BUTTON (Login page open karega) -->
+            <button id="getStartedBtn" class="btn-primary ripple" onclick="window.location.href='login.html'">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="btn-secondary ripple" onclick="playClick()">
+                Explore More
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i> scroll to explore
+        </div>
+    </div>
+</section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <span class="section-title">Built for glory</span>
+                <p>We fuse futuristic design with raw competitive spirit. TEAM SHIVAA is more than a brand — it's a movement for students and gamers who dare to win.</p>
+               <a href="story.html" class="btn-primary ripple">Our Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="about-img">
+                <img src="https://dr-fast-upload.pages.dev/public/3d5a89cbddf0.png" alt="BGMI squad" />
+            </div>
+        </div>
+    </section>
+
+ <!-- ===== STATISTICS ===== -->
+<section id="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="glass-card stat-card">
+                <div class="stat-number" data-count="200">0</div>
+                <p>Tournaments</p>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-number" data-count="165">0</div>
+                <p>Victories</p>
+            </div>
+            <div class="glass-card stat-card">
+                <div class="stat-number" data-count="3200">0</div>
+                <p>Community Members</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <!-- ===== SERVICES ===== -->
+<section id="services">
+    <div class="container">
+        <span class="section-title">Elite Services</span>
+        <p class="section-sub">Premium offerings for serious gamers</p>
+        <div class="services-grid">
+            <!-- Service 1 - Pro Coaching -->
+            <div class="glass-card service-card">
+                <img src="https://dr-fast-upload.pages.dev/public/a98a4ffda5f7.png" alt="Coaching" class="service-icon" />
+                <h3>Pro Coaching</h3>
+                <p>1-on-1 sessions with top 1% players. Personalized strategy.</p>
+            </div>
+            
+            <!-- Service 2 - Tournament Prep -->
+            <div class="glass-card service-card">
+                <img src="https://dr-fast-upload.pages.dev/public/27ca24f5ffc5.png" alt="Tournament" class="service-icon" />
+                <h3>Tournament Prep</h3>
+                <p>Strategy, aim training, team synergy & scrims.</p>
+            </div>
+            
+            <!-- Service 3 - Premium Merch -->
+            <div class="glass-card service-card">
+                <img src="https://dr-fast-upload.pages.dev/public/bdafc52ef20e.png" alt="Merch" class="service-icon" />
+                <h3>Premium Merch</h3>
+                <p>Exclusive apparel, peripherals & gaming gear.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+<section id="portfolio">
+    <div class="container">
+        <span class="section-title">Recent Wins</span>
+        <p class="section-sub">Our journey to the top</p>
+        <div class="portfolio-grid">
+            <div class="glass-card portfolio-card">
+                <img src="https://dr-fast-upload.pages.dev/public/ed3378dfacc5.png" alt="Trophy" />
+                <h3>BGMI Champions 2025</h3>
+                <p>First place with record kills. Dominated the finals.</p>
+            </div>
+            <div class="glass-card portfolio-card">
+                <img src="https://dr-fast-upload.pages.dev/public/6c278834c66e.png" alt="BGMI" />
+                <h3>Valorant Invitational</h3>
+                <p>Undefeated run to the finals. Perfect performance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials">
+        <div class="container">
+            <span class="section-title">What Our Community Says</span>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <p>"TEAM SHIVAA changed my gameplay completely. Best decision ever."</p>
+                    <strong>— Karan Sharma</strong>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <p>"The coaching is next level. Worth every rupee invested."</p>
+                    <strong>— Ananya Patel</strong>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <p>"Best esports community in India. Supportive and skilled."</p>
+                    <strong>— Rohan Verma</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing">
+        <div class="container">
+            <span class="section-title">Membership Plans</span>
+            <p class="section-sub">Choose your path to glory</p>
+            <div class="pricing-grid">
+                <div class="glass-card pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">₹999</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Basic coaching</li>
+                        <li><i class="fas fa-check"></i> Community access</li>
+                        <li><i class="fas fa-check"></i> Discord server</li>
+                    </ul>
+                    <button class="btn-primary ripple" onclick="playClick()">Join Now</button>
+                </div>
+                <div class="glass-card pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">₹2,499</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Full coaching access</li>
+                        <li><i class="fas fa-check"></i> Merch discount (20%)</li>
+                        <li><i class="fas fa-check"></i> Private scrims</li>
+                    </ul>
+                    <button class="btn-primary ripple" onclick="playClick()">Join Now</button>
+                </div>
+                <div class="glass-card pricing-card">
+                    <h3>Elite</h3>
+                    <div class="price">₹4,999</div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 1-on-1 coaching</li>
+                        <li><i class="fas fa-check"></i> Tournament entry</li>
+                        <li><i class="fas fa-check"></i> Premium merch kit</li>
+                    </ul>
+                    <button class="btn-primary ripple" onclick="playClick()">Join Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+        <div class="container">
+            <span class="section-title">Frequently Asked Questions</span>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How do I join TEAM SHIVAA?</h3>
+                    <p>Simply click the "Join Now" button and fill out the registration form. We'll contact you within 24 hours.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What games do you support?</h3>
+                    <p>We primarily focus on BGMI, Valorant, and Call of Duty. More games coming soon.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a trial period?</h3>
+                    <p>Yes! We offer a 7-day free trial for all new members to experience our coaching and community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM ===== -->
+<section id="team" style="background: var(--black);">
+    <div class="container">
+        <span class="section-title">Our Leadership</span>
+        <p class="section-sub">The minds behind TEAM SHIVAA</p>
+        <div class="team-grid">
+            <!-- Shivaa - Leader (With Personal Photo) -->
+            <div class="glass-card team-card">
+                <div class="team-badge leader">LEADER</div>
+                <img src="https://dr-fast-upload.pages.dev/public/9890a4466983.jpg" alt="Shivaa" class="team-photo" />
+                <h3>Shivaa</h3>
+                <p>Founder &amp; CEO</p>
+            </div>
+            
+            <!-- Rachit Pandey - Head Coach -->
+            <div class="glass-card team-card">
+                <div class="team-badge coach">🎯 HEAD COACH</div>
+                <img src="https://dr-fast-upload.pages.dev/public/4d57b12ff8fc.png" alt="Rachit Pandey" class="team-photo" />
+                <h3>Rachit Pandey</h3>
+                <p>Head Coach</p>
+            </div>
+            
+            <!-- Ayushi Pandey - Community Manager -->
+            <div class="glass-card team-card">
+                <div class="team-badge manager">👑 MANAGER</div>
+                <img src="https://dr-fast-upload.pages.dev/public/603ab4416c0b.png" alt="Ayushi Pandey" />
+                <h3>Ayushi Pandey</h3>
+                <p>Community Manager</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== PARTNERS ===== -->
+    <section id="partners">
+        <div class="container">
+            <span class="section-title">Our Partners</span>
+            <div class="partners-grid">
+                <div class="partner-logo">🎮 GameTech</div>
+                <div class="partner-logo">⚡ PowerGear</div>
+                <div class="partner-logo">🏆 ESportsHub</div>
+                <div class="partner-logo">💻 StreamPro</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CALL TO ACTION ===== -->
+    <section id="cta">
+        <div class="container cta-box">
+            <h2>Ready to Dominate?</h2>
+            <p>Join TEAM SHIVAA today and start your journey to esports glory.</p>
+            <a href="login.html" class="btn-primary btn-large ripple" onclick="playClick()">
+                 <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section id="newsletter">
+        <div class="container newsletter-box">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Get the latest updates, tips, and tournament news.</p>
+            <form id="newsletterForm">
+                <input type="email" placeholder="Your email address" required />
+                <button type="submit" class="btn-primary ripple" onclick="playClick()">Subscribe</button>
+            </form>
+        </div>
+    </section>
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+    <div class="container">
+        <span class="section-title">Get In Touch</span>
+        <p class="section-sub">We'd love to hear from you. Reach out to us anytime.</p>
+        
+        <div class="contact-wrapper">
+            <!-- ✅ LEFT SIDE - CONTACT INFO -->
+            <div class="contact-info">
+                <!-- Email -->
+                <div class="contact-item glass-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email Us</h4>
+                        <a href="mailto:shivatiwari262423@gmail.com">shivatiwari262423@gmail.com</a>
+                    </div>
+                </div>
+                
+                <!-- Phone -->
+                <div class="contact-item glass-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Call Us</h4>
+                        <a href="tel:+919196243053">+91 91962 43053</a>
+                    </div>
+                </div>
+                
+                <!-- Location -->
+                <div class="contact-item glass-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Our Location</h4>
+                        <p>Mumbai, Maharashtra, India</p>
+                    </div>
+                </div>
+                
+                <!-- Social -->
+                <div class="contact-social glass-card">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitch"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ✅ RIGHT SIDE - CONTACT FORM + MAP -->
+            <div class="contact-form-wrapper">
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm">
+                    <h3>Send us a Message</h3>
+                    <input type="text" id="cname" placeholder="Your Name" required />
+                    <div class="error-msg" id="nameError"></div>
+                    
+                    <input type="email" id="cemail" placeholder="Your Email" required />
+                    <div class="error-msg" id="emailError"></div>
+                    
+                    <input type="text" id="csubject" placeholder="Subject" />
+                    
+                    <textarea rows="4" id="cmsg" placeholder="Your Message"></textarea>
+                    
+                    <button type="submit" class="btn-primary ripple" onclick="playClick()">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <div id="formSuccess" class="success-msg">✓ Message sent successfully!</div>
+                </form>
+                
+                <!-- Google Map -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241316.64339264877!2d72.74110118837859!3d19.08219783956281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1710000000000" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; border-radius: 20px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="https://dr-fast-upload.pages.dev/public/cac4ff865d0d.png" alt="TEAM SHIVAA" />
+                    TEAM SHIVAA
+                    
+                </div>
+                <p>© 2026 All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <input type="email" placeholder="Your email" />
+                <button class="btn-primary btn-sm" onclick="playClick()">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="back-top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="script.js"></script>
+    
+</body>
+</html>.

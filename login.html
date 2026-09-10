@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — TEAM SHIVAA</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --cyan: #06B6D4;
+            --purple: #8B5CF6;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0F172A;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-page {
+            background: radial-gradient(circle at 20% 30%, #0F172A, #050b16);
+            padding: 40px 20px;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-card {
+            max-width: 420px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 28px;
+            padding: 40px 36px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .login-header .logo-icon {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .login-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .login-header p {
+            color: #8aa0d0;
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #b0c6f0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+        }
+        
+        .form-group input::placeholder {
+            color: #4a5a7a;
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-login:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-back {
+            background: transparent;
+            border: none;
+            color: #6a84b0;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn-back:hover {
+            color: var(--cyan);
+        }
+        
+        .error-msg {
+            color: #ff6b7a;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            min-height: 18px;
+        }
+        
+        .success-msg {
+            color: #66d9a0;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            min-height: 18px;
+        }
+        
+        .toggle-link {
+            color: var(--cyan);
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="login-page">
+        <div class="login-card">
+            
+            <div class="login-header">
+                <span class="logo-icon"><i class="fas fa-gamepad"></i></span>
+                <h1>TEAM SHIVAA</h1>
+                <p id="formTitle">Login to your account</p>
+            </div>
+            
+            <!-- ✅ LOGIN / REGISTER FORM -->
+            <form id="authForm">
+                <!-- Name Field (Only for Register) -->
+                <div class="form-group" id="nameGroup" style="display:none;">
+                    <label>Full Name</label>
+                    <input type="text" id="authName" placeholder="Your full name" />
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="authEmail" placeholder="you@example.com" required />
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="authPassword" placeholder="Min 6 characters" required />
+                </div>
+                
+                <!-- BGMI ID (Only for Register) -->
+                <div class="form-group" id="bgmiGroup" style="display:none;">
+                    <label>BGMI ID</label>
+                    <input type="text" id="authBgmi" placeholder="Your BGMI in-game ID" />
+                </div>
+                
+                <div id="authError" class="error-msg"></div>
+                <div id="authSuccess" class="success-msg"></div>
+                
+                <button type="submit" class="btn-login" id="authBtn">Login <i class="fas fa-arrow-right"></i></button>
+            </form>
+            
+            <!-- ✅ TOGGLE LOGIN/REGISTER -->
+            <p style="color:#6a84b0; margin-top:16px; font-size:0.85rem; text-align:center;">
+                <span id="toggleText">Don't have an account?</span>
+                <span class="toggle-link" id="toggleBtn">Register</span>
+            </p>
+            
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+        </div>
+    </section>
+
+    <script>
+        // ========================================
+        // ✅ TOGGLE LOGIN / REGISTER
+        // ========================================
+        
+        let isLogin = true;
+        const toggleBtn = document.getElementById('toggleBtn');
+        const toggleText = document.getElementById('toggleText');
+        const formTitle = document.getElementById('formTitle');
+        const authBtn = document.getElementById('authBtn');
+        const nameGroup = document.getElementById('nameGroup');
+        const bgmiGroup = document.getElementById('bgmiGroup');
+        
+        toggleBtn.addEventListener('click', function() {
+            isLogin = !isLogin;
+            
+            if (isLogin) {
+                // ✅ LOGIN MODE
+                formTitle.textContent = 'Login to your account';
+                authBtn.innerHTML = 'Login <i class="fas fa-arrow-right"></i>';
+                toggleText.textContent = "Don't have an account?";
+                toggleBtn.textContent = 'Register';
+                nameGroup.style.display = 'none';
+                bgmiGroup.style.display = 'none';
+            } else {
+                // ✅ REGISTER MODE
+                formTitle.textContent = 'Create your account';
+                authBtn.innerHTML = 'Register <i class="fas fa-user-plus"></i>';
+                toggleText.textContent = 'Already have an account?';
+                toggleBtn.textContent = 'Login';
+                nameGroup.style.display = 'block';
+                bgmiGroup.style.display = 'block';
+            }
+            
+            document.getElementById('authError').textContent = '';
+            document.getElementById('authSuccess').textContent = '';
+        });
+        
+        // ========================================
+        // ✅ FORM SUBMIT
+        // ========================================
+        
+        document.getElementById('authForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('authEmail').value.trim();
+            const password = document.getElementById('authPassword').value.trim();
+            const errorEl = document.getElementById('authError');
+            const successEl = document.getElementById('authSuccess');
+            
+            errorEl.textContent = '';
+            successEl.textContent = '';
+            
+            if (!email || !email.includes('@')) {
+                errorEl.textContent = '⚠️ Please enter a valid email address.';
+                return;
+            }
+            
+            if (!password || password.length < 6) {
+                errorEl.textContent = '⚠️ Password must be at least 6 characters.';
+                return;
+            }
+            
+            const API_URL = 'http://localhost:5000/api';
+            
+            try {
+                let endpoint, body;
+                
+                if (isLogin) {
+                    // ✅ LOGIN
+                    endpoint = '/login';
+                    body = { email, password };
+                } else {
+                    // ✅ REGISTER
+                    const name = document.getElementById('authName').value.trim() || email.split('@')[0];
+                    const bgmiId = document.getElementById('authBgmi').value.trim();
+                    endpoint = '/register';
+                    body = { name, email, password, bgmiId };
+                }
+                
+                const response = await fetch(API_URL + endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    if (isLogin) {
+                        // ✅ LOGIN SUCCESS
+                        const userName = data.user.name || email.split('@')[0];
+                        const userPhoto = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=8B5CF6&color=fff&size=100`;
+                        
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('userEmail', data.user.email);
+                        localStorage.setItem('userName', userName);
+                        localStorage.setItem('userPhoto', userPhoto);
+                        localStorage.setItem('token', data.token);
+                        
+                        successEl.textContent = '✅ Login successful! Redirecting...';
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 1000);
+                    } else {
+                        // ✅ REGISTER SUCCESS
+                        successEl.textContent = '✅ Registration successful! Please login.';
+                        
+                        // Switch to login mode
+                        isLogin = true;
+                        formTitle.textContent = 'Login to your account';
+                        authBtn.innerHTML = 'Login <i class="fas fa-arrow-right"></i>';
+                        toggleText.textContent = "Don't have an account?";
+                        toggleBtn.textContent = 'Register';
+                        nameGroup.style.display = 'none';
+                        bgmiGroup.style.display = 'none';
+                        
+                        document.getElementById('authPassword').value = '';
+                        document.getElementById('authName').value = '';
+                        document.getElementById('authBgmi').value = '';
+                    }
+                } else {
+                    errorEl.textContent = '❌ ' + (data.error || 'Something went wrong.');
+                }
+                
+            } catch (error) {
+                console.error('Auth error:', error);
+                errorEl.textContent = '❌ Server error. Please make sure backend is running on port 5000.';
+            }
+        });
+        
+        // ========================================
+        // ✅ DEMO CREDENTIALS
+        // ========================================
+        
+        console.log('✅ TEAM SHIVAA Login/Register loaded!');
+        console.log('📌 Demo: Register then Login');
+        console.log('🔗 Backend: http://localhost:5000');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story — TEAM SHIVAA</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --cyan: #06B6D4;
+            --purple: #8B5CF6;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0F172A;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .story-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 20% 30%, #0F172A, #050b16);
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://dr-fast-upload.pages.dev/public/dde20e21d33e.jpg') center/cover no-repeat;
+            opacity: 0.06;
+            z-index: 0;
+        }
+        
+        .story-card {
+            position: relative;
+            z-index: 1;
+            max-width: 850px;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 28px;
+            padding: 50px 45px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+        
+        .story-card .logo-icon {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .story-card h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+        
+        .story-card .sub-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--cyan);
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+            display: block;
+        }
+        
+        .story-content {
+            color: #c0d0f0;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        
+        .story-content p {
+            margin-bottom: 18px;
+        }
+        
+        .story-content strong {
+            color: #fff;
+        }
+        
+        .story-content .highlight {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+        
+        .story-content .highlight-purple {
+            color: var(--purple);
+            font-weight: 600;
+        }
+        
+        .story-content .quote {
+            border-left: 3px solid var(--purple);
+            padding-left: 20px;
+            font-style: italic;
+            color: #d0ddf5;
+            margin: 24px 0;
+            font-size: 1.1rem;
+        }
+        
+        .story-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 30px 0 16px 0;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .story-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--cyan);
+            margin: 20px 0 8px 0;
+        }
+        
+        .story-content .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0 24px 0;
+        }
+        
+        .story-content .value-item {
+            background: rgba(6, 182, 212, 0.06);
+            border: 1px solid rgba(139, 92, 246, 0.12);
+            border-radius: 12px;
+            padding: 16px 14px;
+            text-align: center;
+        }
+        
+        .story-content .value-item strong {
+            color: var(--cyan);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        
+        .story-content .value-item span {
+            color: #8aa0d0;
+            font-size: 0.85rem;
+        }
+        
+        .story-content .leadership-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 16px 0 24px 0;
+        }
+        
+        .story-content .leader-item {
+            background: rgba(139, 92, 246, 0.06);
+            border: 1px solid rgba(139, 92, 246, 0.12);
+            border-radius: 16px;
+            padding: 24px 16px 28px 16px;
+            text-align: center;
+        }
+        
+        .story-content .leader-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 2%;
+            border: 3px solid var(--cyan);
+            margin-bottom: 12px;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+        }
+        
+        .story-content .leader-item h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+        
+        .story-content .leader-item .role {
+            color: var(--cyan);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .story-content .leader-item .quote-text {
+            color: #8aa0d0;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 8px;
+        }
+        
+        .story-content .cta-box {
+            background: rgba(6, 182, 212, 0.06);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            margin: 24px 0 10px 0;
+        }
+        
+        .story-content .cta-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+        
+        .story-content .cta-box .tagline {
+            color: var(--cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            border: none;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+            text-decoration: none;
+            margin-top: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .back-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .story-card {
+                padding: 30px 24px;
+            }
+            .story-card h1 {
+                font-size: 2rem;
+            }
+            .story-content {
+                font-size: 0.95rem;
+            }
+            .story-content .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .story-content .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+            .story-content .leader-item img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .story-card {
+                padding: 24px 16px;
+            }
+            .story-card h1 {
+                font-size: 1.6rem;
+            }
+            .story-content .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="story-page">
+        <div class="story-card">
+            
+            <span class="logo-icon"><i class="fas fa-gamepad"></i></span>
+            <h1>OUR STORY</h1>
+            <span class="sub-title">FORGED BY PASSION. BUILT FOR CHAMPIONS.</span>
+            
+            <div class="story-content">
+                
+                <!-- ======================================== -->
+                <!-- ✅ INTRODUCTION                          -->
+                <!-- ======================================== -->
+                <p>
+                    In the world of esports, success isn't defined by a single victory—it's built through discipline, teamwork, relentless practice, and the courage to compete against the best. <strong>TEAM SHIVAA</strong> was founded on these principles with a mission to create an organization where aspiring gamers can transform their passion into excellence.
+                </p>
+                
+                <p>
+                    Established by <strong>Shiva Tiwari</strong>, TEAM SHIVAA began with a bold vision: to build a professional esports organization that nurtures talent, inspires confidence, and represents the next generation of competitive gaming. More than just an esports team, TEAM SHIVAA is a community where players, creators, and fans come together to learn, grow, and achieve greatness.
+                </p>
+                
+                <!-- ======================================== -->
+                <!-- ✅ COACHING                              -->
+                <!-- ======================================== -->
+                <p>
+                    Every achievement starts with preparation. Under the leadership of <strong>Head Coach Rachit Pandey</strong>, our athletes receive structured coaching, strategic game analysis, performance reviews, and personalized improvement plans. We believe that true champions are created through consistency, discipline, and a commitment to continuous learning.
+                </p>
+                
+                <p>
+                    A successful esports organization is powered not only by skilled players but also by a strong and united community. <strong>Community Manager Ayushi Pandey</strong> leads initiatives that strengthen the connection between our players, supporters, and gaming enthusiasts through tournaments, online events, social engagement, and community programs. Her focus is to ensure that every member feels valued and inspired to contribute to the TEAM SHIVAA journey.
+                </p>
+                
+                <p>
+                    At TEAM SHIVAA, we strive to deliver more than competitive success. We are committed to developing leadership, teamwork, sportsmanship, and professionalism—qualities that extend far beyond the gaming arena. Every tournament, every training session, and every challenge is an opportunity to become stronger than yesterday.
+                </p>
+                
+                <p>
+                    As we continue to grow, our vision remains clear: to establish <strong>TEAM SHIVAA</strong> as one of India's most respected esports organizations, recognized for competitive excellence, innovation, and an unwavering commitment to its community.
+                </p>
+                
+                <!-- ======================================== -->
+                <!-- ✅ MISSION & VISION                      -->
+                <!-- ======================================== -->
+                <h2>Our Mission</h2>
+                <p>
+                    To empower students and gamers by providing world-class coaching, competitive opportunities, and a supportive environment where dedication transforms into achievement.
+                </p>
+                
+                <h2>Our Vision</h2>
+                <p>
+                    To become a globally recognized esports organization that develops champions, builds meaningful communities, and inspires the future of competitive gaming.
+                </p>
+                
+                <!-- ======================================== -->
+                <!-- ✅ CORE VALUES                           -->
+                <!-- ======================================== -->
+                <h2>Our Core Values</h2>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <strong>Excellence</strong>
+                        <span>We pursue the highest standards in everything we do—from gameplay and coaching to community engagement.</span>
+                    </div>
+                    <div class="value-item">
+                        <strong>Discipline</strong>
+                        <span>Consistent effort, structured training, and a champion's mindset are the foundation of long-term success.</span>
+                    </div>
+                    <div class="value-item">
+                        <strong>Innovation</strong>
+                        <span>We embrace new strategies, technologies, and ideas to stay ahead in the ever-evolving esports industry.</span>
+                    </div>
+                    <div class="value-item">
+                        <strong>Teamwork</strong>
+                        <span>Great victories are achieved through trust, communication, and unity.</span>
+                    </div>
+                    <div class="value-item">
+                        <strong>Respect</strong>
+                        <span>Every player, supporter, partner, and opponent deserves respect both inside and outside the game.</span>
+                    </div>
+                </div>
+                
+                <!-- ======================================== -->
+                <!-- ✅ LEADERSHIP (WITH PHOTOS)             -->
+                <!-- ======================================== -->
+                <h2>Leadership</h2>
+                
+                <div class="leadership-grid">
+                    
+                    <!-- ✅ Founder - Shiva Tiwari (Photo Added) -->
+                    <div class="leader-item">
+                        <img src="https://dr-fast-upload.pages.dev/public/9890a4466983.jpg" alt="Shiva Tiwari" />
+                        <h4>Shiva Tiwari</h4>
+                        <div class="role">⭐ Founder</div>
+                        <div class="quote-text">"Great teams aren't built overnight. They're built through vision, dedication, and the courage to dream bigger than everyone else."</div>
+                    </div>
+                    
+                    <!-- ✅ Head Coach - Rachit Pandey (Photo Added) -->
+                    <div class="leader-item">
+                        <img src="https://dr-fast-upload.pages.dev/public/4d57b12ff8fc.png" alt="Rachit Pandey" />
+                        <h4>Rachit Pandey</h4>
+                        <div class="role">🎯 Head Coach</div>
+                        <div class="quote-text">"Champions are made in practice long before they lift a trophy."</div>
+                    </div>
+                    
+                    <!-- ✅ Community Manager - Ayushi Pandey -->
+                    <div class="leader-item">
+                        <!-- ✅ YAHAN AYUSHI PANDEY KI PHOTO KA LINK DAALEIN -->
+                        <img src="https://dr-fast-upload.pages.dev/public/603ab4416c0b.png" alt="Ayushi Pandey" />
+                        <h4>Ayushi Pandey</h4>
+                        <div class="role">👑 Community Manager</div>
+                        <div class="quote-text">"A strong community is the heartbeat of every successful esports organization."</div>
+                    </div>
+                    
+                </div>
+                
+                <!-- ======================================== -->
+                <!-- ✅ CALL TO ACTION                       -->
+                <!-- ======================================== -->
+                <div class="cta-box">
+                    <h3>Join the Journey</h3>
+                    <p style="margin-bottom: 8px; font-size: 0.95rem;">
+                        Whether you're an aspiring professional player, a passionate gamer, a content creator, or a dedicated supporter, <strong>TEAM SHIVAA</strong> welcomes you to become part of a community driven by ambition, discipline, and excellence.
+                    </p>
+                    <div class="tagline">TEAM SHIVAA — Game Beyond Limits.</div>
+                </div>
+                
+            </div>
+            
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+        </div>
+    </section>
+
+</body>
+</html>
