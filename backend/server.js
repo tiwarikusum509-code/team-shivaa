@@ -7,26 +7,37 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// ✅ MIDDLEWARE
-app.use(cors());
+// ========================================
+// ✅ MIDDLEWARE (SABSE PEHLE)
+// ========================================
+
+app.use(cors({
+    origin: [
+        'https://team-shivaa.tiwarikusum509.workers.dev',
+        'https://team-shivaa.pages.dev',
+        'http://localhost:5500',
+        'http://127.0.0.1:5500',
+        'http://localhost:3000'
+    ]
+}));
 app.use(bodyParser.json());
 
-// ✅ DATABASE PATH
+// ========================================
+// ✅ DATABASE SETUP
+// ========================================
+
 const DB_PATH = path.join(__dirname, 'database', 'users.json');
 
-// ✅ DATABASE FOLDER BANAYEIN
 if (!fs.existsSync(path.join(__dirname, 'database'))) {
     fs.mkdirSync(path.join(__dirname, 'database'));
 }
 
-// ✅ DATABASE FILE BANAYEIN
 if (!fs.existsSync(DB_PATH)) {
     fs.writeFileSync(DB_PATH, JSON.stringify([]));
 }
 
-// ✅ HELPER FUNCTIONS
 function readUsers() {
     const data = fs.readFileSync(DB_PATH);
     return JSON.parse(data);
@@ -203,7 +214,38 @@ app.get('/api/profile/:id', (req, res) => {
 });
 
 // ========================================
-// ✅ SERVER START
+// ✅ ADMIN API — SAARE USERS DEKHNE KE LIYE
+// ========================================
+
+app.get('/api/admin/users', (req, res) => {
+    try {
+        const users = readUsers();
+        
+        // Password hata kar bhejein
+        const safeUsers = users.map(u => ({
+            id: u.id,
+            name: u.name,
+            email: u.email,
+            bgmiId: u.bgmiId,
+            createdAt: u.createdAt
+        }));
+        
+        res.json({
+            success: true,
+            totalUsers: safeUsers.length,
+            users: safeUsers
+        });
+    } catch (error) {
+        console.error('Admin error:', error);
+        res.status(500).json({ 
+            success: false, 
+            error: 'Server error' 
+        });
+    }
+});
+
+// ========================================
+// ✅ SERVER START (SABSE LAST)
 // ========================================
 
 app.listen(PORT, () => {
@@ -211,11 +253,5 @@ app.listen(PORT, () => {
     console.log(`✅ Test API: http://localhost:${PORT}/api/test`);
     console.log(`✅ Register: POST http://localhost:${PORT}/api/register`);
     console.log(`✅ Login: POST http://localhost:${PORT}/api/login`);
+    console.log(`✅ Admin Users: GET http://localhost:${PORT}/api/admin/users`);
 });
-app.use(cors({
-    origin: [
-        'https://team-shivaa.tiwarikusum509.workers.dev',
-        'http://localhost:5500',
-        'http://127.0.0.1:5500'
-    ]
-}));
